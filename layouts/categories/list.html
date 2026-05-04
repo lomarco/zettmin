@@ -1,0 +1,10 @@
+{{ define "main" }}
+  <h1>Categories</h1>
+  <ul>
+  {{ range .Site.Sections }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title | default .Name }}</a> ({{ len .Pages }} pages)
+    </li>
+  {{ end }}
+  </ul>
+{{ end }}
