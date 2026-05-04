@@ -1,10 +1,12 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
   {{ .Content }}
+  <table>
   {{ range .Pages }}
-    <section>
-      <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-      {{ .Summary }}
-    </section>
+  <tr>
+    <td><time>{{ .Date.Format "2006-01-02" }}</time></td>
+    <td><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></td>
+  </tr>
   {{ end }}
+  </table>
 {{ end }}
