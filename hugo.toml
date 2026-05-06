@@ -1,24 +1,37 @@
-baseURL = 'https://example.org/'
-locale = 'en-US'
-title = 'My New Hugo Project'
+baseURL = "http://localhost:1313"
+locale = "en-us"
+title = "Notes"
+theme = "zettmin"
 
-[menus]
-  [[menus.main]]
-    name = 'Home'
-    pageRef = '/'
-    weight = 10
+[menu]
+  [[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
 
-  [[menus.main]]
-    name = 'Posts'
-    pageRef = '/posts'
-    weight = 20
+  [[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 2
 
-  [[menus.main]]
-    name = 'Tags'
-    pageRef = '/tags'
-    weight = 30
+  [[menu.main]]
+  name = "Categories"
+  url = "/categories/"
+  weight = 3
 
-[module]
-  [module.hugoVersion]
-    extended = false
-    min = '0.146.0'
+  [[menu.main]]
+  name = "Tags"
+  url = "/tags/"
+  weight = 4
+
+  [[menu.main]]
+  name = "Subscribe"
+  url = "/index.xml"
+
+[markup]
+  [markup.highlight]
+  codeFences = true
+
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+    unsafe = true
