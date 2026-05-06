@@ -1,6 +1,6 @@
 {{ define "main" }}
   <h1>{{ .Title }}</h1>
-  {{ if .Content }}<div class="term-desc">{{ .Content }}</div>{{ end }}
+  {{ .Content }}
   <ul>
   {{ range .Pages }}
     <li><a href="{{ .RelPermalink }}">{{ .LinkTitle | default .Title }}</a></li>
