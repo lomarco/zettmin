@@ -1,0 +1,9 @@
+{{ $pages := .pages }}
+<table>
+{{ range $pages }}
+<tr>
+  <td><time>{{ .Date.Format "2006-01-02" }}</time></td>
+  <td><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></td>
+</tr>
+{{ end }}
+</table>

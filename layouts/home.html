@@ -1,12 +1,4 @@
 {{ define "main" }}
   {{ .Content }}
-
-  <table>
-  {{ range site.RegularPages }}
-  <tr>
-    <td><time>{{ .Date.Format "2006-01-02" }}</time></td>
-    <td><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></td>
-  </tr>
-  {{ end }}
-  </table>
+  {{ partial "files.html" (dict "pages" site.RegularPages) }}
 {{ end }}
