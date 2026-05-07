@@ -8,6 +8,9 @@ body {
   margin: 1rem;
   max-width: 768px;
 .pubdate { color: #555; font-size: 110%; }
+.pubdate {
+  color: #555;
+  font-size: 110%;
 }
 
 a {
