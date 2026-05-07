@@ -1,6 +1,6 @@
 baseURL = "http://localhost:1313"
 locale = "en-us"
-title = "Notes"
+title = "A minimal Hugo website"
 theme = "zettmin"
 
 [menu]
