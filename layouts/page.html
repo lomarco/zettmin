@@ -1,10 +1,11 @@
 {{ define "main" }}
+  {{ $title := .Title }}
+  {{ $matches := findRE `(?m)^#\s+(.+)$` .RawContent 1 }}
+  {{ if gt (len $matches) 0 }}
+    {{ $title = index $matches 0 | replaceRE `^#\s+` "" }}
+  {{ end }}
 
-{{ $title := findRE "#\\s+(.+)" .RawContent 1 }}
-{{ if not $title }}
-  {{ $title = .Title }}
-<h1>{{ $title }}</h1>
-{{ end }}
+  <h1>{{ $title }}</h1>
 
   {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
   {{ $dateHuman := .Date | time.Format ":date_long" }}
