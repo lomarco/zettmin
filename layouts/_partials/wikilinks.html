@@ -33,12 +33,14 @@
   {{- end -}}
 
   {{- if ne $href "" -}}
-    {{- $link := printf `<a href="%s">%s</a>` $href ($text | markdownify) -}}
+    {{- $safeText := replace $text `]` `\]` -}}
+    {{- $link := printf "[%s](%s)" $safeText $href -}}
     {{- $raw = replace $raw $full $link -}}
   {{- else -}}
-    {{- $missing := printf `<a class="wikilink wikilink--missing">%s</a>` ($text | markdownify) -}}
+    {{- $safeText := replace $text `]` `\]` -}}
+    {{- $missing := printf "`%s`" $safeText -}}
     {{- $raw = replace $raw $full $missing -}}
   {{- end -}}
 {{- end -}}
 
-{{- $raw | safeHTML -}}
+{{- $raw | markdownify -}}
