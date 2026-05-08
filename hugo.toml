@@ -32,9 +32,5 @@ theme = "zettmin"
   [markup.highlight]
   codeFences = true
 
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-    unsafe = true
-
 [params]
   footer = "&copy; [lomarco](https://github.com/lomarco) {Year}"
