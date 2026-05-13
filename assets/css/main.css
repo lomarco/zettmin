@@ -12,8 +12,11 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: sans-serif;
-  line-height: 1.5;
-  margin: 1rem;
+  line-height: 143%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: default;
+  text-justify: auto;
   max-width: 768px;
   transition: background-color .2s ease, color .2s ease;
 }
