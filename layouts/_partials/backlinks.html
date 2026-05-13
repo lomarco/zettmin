@@ -5,10 +5,10 @@
   {{ $base = .BaseFileName }}
 {{ end }}
 {{ $baseNoExt := replaceRE `\.[^.]+$` "" $base }}
+{{ $re := `\[\[([^\]\|]+?)(?:\|([^\]]+?))?\]\]` }}
 
 {{ range .Page.Site.RegularPages }}
   {{ $raw := .RawContent }}
-  {{ $re := `\[\[([^\]\|]+?)(?:\|([^\]]+?))?\]\]` }}
   {{ $matches := findRESubmatch $re $raw }}
   {{ $file := . }}
 
