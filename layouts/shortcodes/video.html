@@ -1,0 +1,12 @@
+{{ $src := .Get "src" | default (.Get 0) }}
+{{ $poster := .Get "poster" | default "" }}
+{{ $controls := .Get "controls" | default "true" }}
+{{ $autoplay := .Get "autoplay" | default "false" }}
+{{ $loop := .Get "loop" | default "false" }}
+{{ $muted := .Get "muted" | default "false" }}
+{{ $class := .Get "class" | default "responsive-video" }}
+
+<video class="{{ $class }}" {{ if eq $controls "true" }}controls{{ end }} {{ if eq $autoplay "true" }}autoplay{{ end }} {{ if eq $loop "true" }}loop{{ end }} {{ if eq $muted "true" }}muted{{ end }} {{ if $poster }}poster="{{ $poster }}"{{ end }} preload="metadata">
+  <source src="{{ $src }}" type="video/mp4">
+  Your browser does not supported video.
+</video>
