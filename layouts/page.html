@@ -5,6 +5,7 @@
   {{ $dateHuman := .Date | time.Format ":date_long" }}
   <time class="pubdate" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
   {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+  {{ partial "backlinks.html" . }}
 
   <main>
   {{ partial "wikilinks" . }}
