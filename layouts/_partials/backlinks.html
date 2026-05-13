@@ -1,5 +1,3 @@
-{{ $current := .Page }}
-
 {{ $title := trim (.Title | plainify) " " }}
 {{ $linkTitle := trim (.LinkTitle | plainify) " " }}
 {{ $base := "" }}
@@ -8,7 +6,7 @@
 {{ end }}
 {{ $baseNoExt := replaceRE `\.[^.]+$` "" $base }}
 
-{{ range $current.Site.RegularPages }}
+{{ range .Page.Site.RegularPages }}
   {{ $raw := .RawContent }}
   {{ $re := `\[\[([^\]\|]+?)(?:\|([^\]]+?))?\]\]` }}
   {{ $matches := findRESubmatch $re $raw }}
