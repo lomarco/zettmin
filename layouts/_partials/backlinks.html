@@ -1,46 +1,30 @@
-{{- $current := .Page -}}
-{{- $backlinks := slice -}}
+{{ $current := .Page }}
 
-{{- range $current.Site.RegularPages -}}
-  {{- $raw := .RawContent -}}
-  {{- $re := `\[\[([^\]\|]+?)(?:\|([^\]]+?))?\]\]` -}}
-  {{- $matches := findRESubmatch $re $raw -}}
-  {{- if $matches -}}
-    {{- range $matches -}}
-      {{- $full := index . 0 -}}
-      {{- $target := trim (index . 1) " " -}}
-      {{- $found := false -}}
+{{ $title := trim (.Title | plainify) " " }}
+{{ $linkTitle := trim (.LinkTitle | plainify) " " }}
+{{ $base := "" }}
+{{ with .File }}
+  {{ $base = .BaseFileName }}
+{{ end }}
+{{ $baseNoExt := replaceRE `\.[^.]+$` "" $base }}
 
-      {{- range $current.Site.RegularPages -}}
-        {{- $title := trim (.Title | plainify) " " -}}
-        {{- $linkTitle := trim (.LinkTitle | plainify) " " -}}
-        {{- $base := "" -}}
-        {{- with .File -}}
-          {{- $base = .BaseFileName -}}
-        {{- end -}}
-        {{- $baseNoExt := replaceRE `\\.[^.]+$` "" $base -}}
+{{ range $current.Site.RegularPages }}
+  {{ $raw := .RawContent }}
+  {{ $re := `\[\[([^\]\|]+?)(?:\|([^\]]+?))?\]\]` }}
+  {{ $matches := findRESubmatch $re $raw }}
+  {{ $file := . }}
 
-        {{- if and (not $found) (or (eq $target $title) (eq $target $linkTitle) (eq $target $base) (eq $target $baseNoExt)) -}}
-          {{- $href := .RelPermalink -}}
-          {{- if eq $href $current.RelPermalink -}}
-            {{- $backlinks = $backlinks | append . -}}
-          {{- end -}}
-          {{- $found = true -}}
-        {{- end -}}
-      {{- end -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
+  {{ if $matches }}
+    {{ range $matches }}
+      {{ $target := trim (index . 1) " " }}
+      {{ $found := false }}
+      {{ $href := "" }}
 
-{{- if $backlinks -}}
-  <div class="backlinks">
-    <h3>Backlinks</h3>
-    <ul>
-      {{- range $backlinks -}}
-        <li>
-          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        </li>
-      {{- end }}
-    </ul>
-  </div>
-{{- end }}
+      {{ if and (not $found) (or (eq $target $title) (eq $target $linkTitle) (eq $target $base) (eq $target $baseNoExt)) }}
+      <a href="{{ $file.RelPermalink }}">{{ $file.Title }}</a>
+        {{ $found = true }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+{{ end }}
