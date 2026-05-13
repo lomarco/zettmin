@@ -1,0 +1,12 @@
+{{ $src := .Get "src" | default (.Get 0) }}
+{{ $alt := .Get "alt" | default "" }}
+{{ $caption := .Get "caption" | default "" }}
+{{ $class := .Get "class" | default "responsive-img" }}
+{{ $width := .Get "width" | default "" }}
+{{ $height := .Get "height" | default "" }}
+{{ $lazy := .Get "lazy" | default "true" }}
+
+<figure class="{{ $class }}">
+  <img src="{{ $src }}" alt="{{ $alt }}" {{ if $width }}width="{{ $width }}"{{ end }} {{ if $height }}height="{{ $height }}"{{ end }} {{ if eq $lazy "true" }}loading="lazy"{{ end }}/>
+  {{ if $caption }}<figcaption>{{ $caption }}</figcaption>{{ end }}
+</figure>
