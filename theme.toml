@@ -1,0 +1,6 @@
+name = "zettmin"
+license = "MIT"
+licenselink = "https://github.com/lomarco/zettmin/blob/master/LICENSE"
+description = "Minimal zettelkasten theme"
+tags = ["minimal", "blog", "personal", "clean", "simple", "minimalist"]
+features = ["blog"]
