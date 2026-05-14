@@ -20,12 +20,12 @@
 git submodule add https://github.com/lomarco/zettmin themes/zettmin
 ```
 
-2. In the root of your Hugo site, enable the theme in `config.toml`:
+2. In the root of your Hugo site, enable the theme in `hugo.toml`:
 ```
 theme = "zettmin"
 ```
 
-3. (Optional) Copy the contents of `themes/zettmin/hugo.toml` into your own `hugo.toml` for further customization.
+3. (Optional) Copy the contents of `themes/zettmin/exampleSite/hugo.toml` into your own `hugo.toml` for further customization.
 
 ## License
 Zettmin is licensed under the MIT License. See the [LICENSE](LICENSE) for details.
