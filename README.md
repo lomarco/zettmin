@@ -25,7 +25,7 @@ git submodule add https://github.com/lomarco/zettmin themes/zettmin
 theme = "zettmin"
 ```
 
-3. (Optional) Copy the contents of `themes/zettmin/exampleSite/hugo.toml` into your own `hugo.toml` for further customization.
+3. Copy the contents of `themes/zettmin/exampleSite/hugo.toml` into your own `hugo.toml`.
 
 ## License
 Zettmin is licensed under the MIT License. See the [LICENSE](LICENSE) for details.
