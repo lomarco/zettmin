@@ -8,7 +8,7 @@ tags: note
 
 _**Zettmin**_ is a minimalist Hugo theme by [lomarco](https://github.com/lomarco) for Zettelkasten-style "second brain" or digital garden sites that does not require JavaScript. It supports wikilinks rendering, backlink lists, tag and category indexes, and more.
 
-Zettmin consists of about 350 lines of HTML and CSS:
+Zettmin consists of about 400 lines of HTML and CSS:
 ``` bash
 find . -not -path '*/exampleSite/*' \( -name '*.html' -o -name '*.css' \) | xargs wc -l
 ```
