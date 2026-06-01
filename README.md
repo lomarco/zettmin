@@ -2,7 +2,9 @@
 
 **Zettmin** — a minimal theme for [Hugo](https://gohugo.io) suitable for blogs, a second brain (Obsidian-like), digital gardens, and more.
 
-[photo]
+<p align="center">
+  <img src="docs/preview.png" alt="Preview" width="1000" />
+</p>
 
 ## Features
 - Wikilinks support: link by internal `title = "Title example"`, by filename, and bracketed links in the form `[[note_title|text]]`.
