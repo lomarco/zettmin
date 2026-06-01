@@ -7,6 +7,8 @@
 {{ $baseNoExt := replaceRE `\.[^.]+$` "" $base }}
 {{ $re := `\[\[([^\]\|]+?)(?:\|([^\]]+?))?\]\]` }}
 
+{{ $backlinks := slice }}
+
 {{ range .Page.Site.RegularPages }}
   {{ $raw := .RawContent }}
   {{ $matches := findRESubmatch $re $raw }}
@@ -15,14 +17,22 @@
   {{ if $matches }}
     {{ range $matches }}
       {{ $target := trim (index . 1) " " }}
-      {{ $found := false }}
       {{ $href := "" }}
 
-      {{ if and (not $found) (or (eq $target $title) (eq $target $linkTitle) (eq $target $base) (eq $target $baseNoExt)) }}
-      <a href="{{ $file.RelPermalink }}">{{ $file.Title }}</a>
-        {{ $found = true }}
+      {{ if or (eq $target $title) (eq $target $linkTitle) (eq $target $base) (eq $target $baseNoExt) }}
+        {{ $backlinks = $backlinks | append (dict "file" $file) }}
       {{ end }}
     {{ end }}
   {{ end }}
+{{ end }}
 
+{{ if gt (len $backlinks) 0 }}
+  <div class="backlinks">
+    <h3>Backlinks:</h3>
+    <ul>
+      {{ range $backlinks }}
+        <li><a href="{{ .file.RelPermalink }}">{{ .file.Title }}</a></li>
+      {{ end }}
+    </ul>
+  </div>
 {{ end }}
