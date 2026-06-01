@@ -6,6 +6,12 @@
   --link: #60a5fa;
   --table-row: rgba(255,255,255,0.02);
   --border: rgba(255,255,255,0.06);
+  --hover-bg: rgba(255,255,255,0.04);
+  --hover-color: #7dd3fc;
+  --active-bg: rgba(96,165,250,0.15);
+  --active-color: #93c5fd;
+  --ancestor-bg: rgba(255,255,255,0.03);
+  --ancestor-color: var(--text);
 }
 
 body {
@@ -59,4 +65,63 @@ footer {
 header {
   border-bottom: 1px solid #222;
   margin-bottom: 1rem;
+}
+
+/* Menu styles */
+.menu {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu-list li {
+  margin: 0;
+}
+
+.menu-list a {
+  display: block;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: var(--text);
+  border-radius: 4px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  border-bottom: none;
+}
+
+.menu-list a:hover {
+  background-color: var(--hover-bg);
+  color: var(--hover-color);
+}
+
+.menu-list a.active {
+  background-color: var(--active-bg);
+  color: var(--active-color);
+  font-weight: 600;
+}
+
+.menu-list a.ancestor {
+  background-color: var(--ancestor-bg);
+  color: var(--ancestor-color);
+}
+
+.menu-list ul {
+  list-style: none;
+  margin: 4px 0 0 12px;
+  padding: 0;
+  border-left: 1px solid var(--border);
+  padding-left: 8px;
+}
+
+.menu-list ul a {
+  font-size: 0.9rem;
+  padding: 6px 10px;
 }

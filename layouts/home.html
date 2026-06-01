@@ -1,4 +1,4 @@
 {{ define "main" }}
-  {{ .Content }}
+  {{ partial "wikilinks" . }}
   {{ partial "files.html" (dict "pages" site.RegularPages) }}
 {{ end }}
